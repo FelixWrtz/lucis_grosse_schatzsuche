@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire</title>
+    <style>
+        /* Styles remain the same as in the previous example */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <center> 
+        <marquee  behavior="alternate" direction="left">           
+              <img src="IMG_0240.PNG"
+              alt="GeeksforGeeks logo">  
+        </marquee>   
+          
+       <marquee  behavior="alternate" direction="right">          
+              <img src="IMG_0240.PNG"
+              alt="GeeksforGeeks logo">  
+        </marquee>   
+    </center> 
+
+    <h1>Questionnaire</h1>
+
+    <form>
+        <label for="q1">An welchem Datum wurde Marius geboren?</label>
+        <input type="text" id="q1" name="q1">
+
+        <label for="q2">Question 2:</label>
+        <input type="text" id="q2" name="q2">
+
+        <label for="q3">Question 3:</label>
+        <input type="text" id="q3" name="q3">
+
+        <label for="q4">Question 4:</label>
+        <input type="text" id="q4" name="q4">
+
+        <label for="q5">Question 5:</label>
+        <input type="text" id="q5" name="q5">
+
+        <button type="button" onclick="submitAnswers()">Submit Answers</button>
+    </form>
+
+    <script>
+        function submitAnswers() {
+            // Correct answers array
+            var correctAnswers = ['26.04.1997', '', '', '', ''];
+
+            // User's answers array
+            var userAnswers = [
+                document.getElementById('q1').value,
+                document.getElementById('q2').value,
+                document.getElementById('q3').value,
+                document.getElementById('q4').value,
+                document.getElementById('q5').value
+            ];
+
+            // Check if all answers are correct
+            var allCorrect = correctAnswers.every(function (element, index) {
+                return element === userAnswers[index];
+            });
+
+            if (allCorrect) {
+                // Redirect to the result page if all answers are correct
+                window.location.href = 'result.html';
+            } else {
+                // Display a message if there are incorrect answers
+                alert('Some answers are incorrect. Please review your answers.');
+            }
+        }
+    </script>
+
+</body>
+</html>
